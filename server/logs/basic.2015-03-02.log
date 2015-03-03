@@ -1,0 +1,1357 @@
+2015-03-02T16:13:25+08:00 [Route] flight\net\Request Object
+(
+    [url] => /
+    [base] => /FlightExt
+    [method] => GET
+    [referrer] => 
+    [ip] => ::1
+    [ajax] => 
+    [scheme] => HTTP/1.1
+    [user_agent] => Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.115 Safari/537.36
+    [type] => 
+    [length] => 0
+    [query] => flight\util\Collection Object
+        (
+            [data:flight\util\Collection:private] => Array
+                (
+                )
+
+        )
+
+    [data] => flight\util\Collection Object
+        (
+            [data:flight\util\Collection:private] => Array
+                (
+                )
+
+        )
+
+    [cookies] => flight\util\Collection Object
+        (
+            [data:flight\util\Collection:private] => Array
+                (
+                )
+
+        )
+
+    [files] => flight\util\Collection Object
+        (
+            [data:flight\util\Collection:private] => Array
+                (
+                )
+
+        )
+
+    [secure] => 
+    [accept] => text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+    [proxy_ip] => 
+)
+
+2015-03-02T16:13:25+08:00 [Route] Array
+(
+    [code] => 404
+    [data] => Array
+        (
+            [success] => false
+            [message] => 喵了个咪的，页面找不到了
+        )
+
+)
+
+2015-03-02T16:15:36+08:00 [Route] flight\net\Request Object
+(
+    [url] => /
+    [base] => /FlightExt
+    [method] => GET
+    [referrer] => 
+    [ip] => ::1
+    [ajax] => 
+    [scheme] => HTTP/1.1
+    [user_agent] => Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.115 Safari/537.36
+    [type] => 
+    [length] => 0
+    [query] => flight\util\Collection Object
+        (
+            [data:flight\util\Collection:private] => Array
+                (
+                )
+
+        )
+
+    [data] => flight\util\Collection Object
+        (
+            [data:flight\util\Collection:private] => Array
+                (
+                )
+
+        )
+
+    [cookies] => flight\util\Collection Object
+        (
+            [data:flight\util\Collection:private] => Array
+                (
+                )
+
+        )
+
+    [files] => flight\util\Collection Object
+        (
+            [data:flight\util\Collection:private] => Array
+                (
+                )
+
+        )
+
+    [secure] => 
+    [accept] => text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+    [proxy_ip] => 
+)
+
+2015-03-02T16:15:44+08:00 [Route] flight\net\Request Object
+(
+    [url] => /sample
+    [base] => /FlightExt
+    [method] => GET
+    [referrer] => 
+    [ip] => ::1
+    [ajax] => 
+    [scheme] => HTTP/1.1
+    [user_agent] => Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.115 Safari/537.36
+    [type] => 
+    [length] => 0
+    [query] => flight\util\Collection Object
+        (
+            [data:flight\util\Collection:private] => Array
+                (
+                )
+
+        )
+
+    [data] => flight\util\Collection Object
+        (
+            [data:flight\util\Collection:private] => Array
+                (
+                )
+
+        )
+
+    [cookies] => flight\util\Collection Object
+        (
+            [data:flight\util\Collection:private] => Array
+                (
+                )
+
+        )
+
+    [files] => flight\util\Collection Object
+        (
+            [data:flight\util\Collection:private] => Array
+                (
+                )
+
+        )
+
+    [secure] => 
+    [accept] => text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+    [proxy_ip] => 
+)
+
+2015-03-02T16:15:44+08:00 [Route] Array
+(
+    [code] => 200
+    [data] => Array
+        (
+            [success] => true
+            [message] => for test
+        )
+
+)
+
+2015-03-02T16:37:12+08:00 [Route] flight\net\Request Object
+(
+    [url] => /
+    [base] => /o_o
+    [method] => GET
+    [referrer] => 
+    [ip] => ::1
+    [ajax] => 
+    [scheme] => HTTP/1.1
+    [user_agent] => Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.115 Safari/537.36
+    [type] => 
+    [length] => 0
+    [query] => flight\util\Collection Object
+        (
+            [data:flight\util\Collection:private] => Array
+                (
+                )
+
+        )
+
+    [data] => flight\util\Collection Object
+        (
+            [data:flight\util\Collection:private] => Array
+                (
+                )
+
+        )
+
+    [cookies] => flight\util\Collection Object
+        (
+            [data:flight\util\Collection:private] => Array
+                (
+                )
+
+        )
+
+    [files] => flight\util\Collection Object
+        (
+            [data:flight\util\Collection:private] => Array
+                (
+                )
+
+        )
+
+    [secure] => 
+    [accept] => text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+    [proxy_ip] => 
+)
+
+2015-03-02T16:39:12+08:00 [Route] flight\net\Request Object
+(
+    [url] => /
+    [base] => /o_o
+    [method] => GET
+    [referrer] => 
+    [ip] => ::1
+    [ajax] => 
+    [scheme] => HTTP/1.1
+    [user_agent] => Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.115 Safari/537.36
+    [type] => 
+    [length] => 0
+    [query] => flight\util\Collection Object
+        (
+            [data:flight\util\Collection:private] => Array
+                (
+                )
+
+        )
+
+    [data] => flight\util\Collection Object
+        (
+            [data:flight\util\Collection:private] => Array
+                (
+                )
+
+        )
+
+    [cookies] => flight\util\Collection Object
+        (
+            [data:flight\util\Collection:private] => Array
+                (
+                )
+
+        )
+
+    [files] => flight\util\Collection Object
+        (
+            [data:flight\util\Collection:private] => Array
+                (
+                )
+
+        )
+
+    [secure] => 
+    [accept] => text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+    [proxy_ip] => 
+)
+
+2015-03-02T18:20:53+08:00 [Session] checkSession
+2015-03-02T18:20:53+08:00 [Session] model\SessionModel Object
+(
+    [data:core\data_struct\BasicData:private] => Array
+        (
+            [client_from] => CUSTOMER
+            [access_token] => 
+            [device_token] => 
+        )
+
+)
+
+2015-03-02T18:21:23+08:00 [Session] checkSession
+2015-03-02T18:21:23+08:00 [Session] model\SessionModel Object
+(
+    [data:core\data_struct\BasicData:private] => Array
+        (
+            [client_from] => CUSTOMER
+            [access_token] => 
+            [device_token] => 
+        )
+
+)
+
+2015-03-02T18:21:39+08:00 [Session] checkSession
+2015-03-02T18:21:39+08:00 [Session] model\SessionModel Object
+(
+    [data:core\data_struct\BasicData:private] => Array
+        (
+            [client_from] => CUSTOMER
+            [access_token] => 
+            [device_token] => 
+        )
+
+)
+
+2015-03-02T18:21:40+08:00 [Route] Array
+(
+    [code] => 402
+    [data] => Array
+        (
+            [success] => false
+            [message] => Assertion Failed: Line 85 in D:\wamp\www\o_o\core\model\AbstractModel.php: 
+        )
+
+)
+
+2015-03-02T18:22:30+08:00 [Session] checkSession
+2015-03-02T18:22:30+08:00 [Session] model\SessionModel Object
+(
+    [data:core\data_struct\BasicData:private] => Array
+        (
+            [client_from] => CUSTOMER
+            [access_token] => 
+            [device_token] => 
+        )
+
+)
+
+2015-03-02T18:22:30+08:00 [Route] Array
+(
+    [code] => 402
+    [data] => Array
+        (
+            [success] => false
+            [message] => Assertion Failed: Line 85 in D:\wamp\www\o_o\core\model\AbstractModel.php: 
+        )
+
+)
+
+2015-03-02T18:22:32+08:00 [Session] checkSession
+2015-03-02T18:22:32+08:00 [Session] model\SessionModel Object
+(
+    [data:core\data_struct\BasicData:private] => Array
+        (
+            [client_from] => CUSTOMER
+            [access_token] => 
+            [device_token] => 
+        )
+
+)
+
+2015-03-02T18:22:32+08:00 [Route] Array
+(
+    [code] => 402
+    [data] => Array
+        (
+            [success] => false
+            [message] => Assertion Failed: Line 85 in D:\wamp\www\o_o\core\model\AbstractModel.php: 
+        )
+
+)
+
+2015-03-02T18:23:30+08:00 [Session] checkSession
+2015-03-02T18:23:30+08:00 [Session] model\SessionModel Object
+(
+    [data:core\data_struct\BasicData:private] => Array
+        (
+            [client_from] => CUSTOMER
+            [access_token] => 
+            [device_token] => 
+        )
+
+)
+
+2015-03-02T18:23:30+08:00 [Route] Array
+(
+    [code] => 402
+    [data] => Array
+        (
+            [success] => false
+            [message] => Assertion Failed: Line 85 in D:\wamp\www\o_o\core\model\AbstractModel.php: 
+        )
+
+)
+
+2015-03-02T18:23:31+08:00 [Session] checkSession
+2015-03-02T18:23:31+08:00 [Session] model\SessionModel Object
+(
+    [data:core\data_struct\BasicData:private] => Array
+        (
+            [client_from] => CUSTOMER
+            [access_token] => 
+            [device_token] => 
+        )
+
+)
+
+2015-03-02T18:23:31+08:00 [Route] Array
+(
+    [code] => 402
+    [data] => Array
+        (
+            [success] => false
+            [message] => Assertion Failed: Line 85 in D:\wamp\www\o_o\core\model\AbstractModel.php: 
+        )
+
+)
+
+2015-03-02T18:23:32+08:00 [Session] checkSession
+2015-03-02T18:23:32+08:00 [Session] model\SessionModel Object
+(
+    [data:core\data_struct\BasicData:private] => Array
+        (
+            [client_from] => CUSTOMER
+            [access_token] => 
+            [device_token] => 
+        )
+
+)
+
+2015-03-02T18:23:32+08:00 [Route] Array
+(
+    [code] => 402
+    [data] => Array
+        (
+            [success] => false
+            [message] => Assertion Failed: Line 85 in D:\wamp\www\o_o\core\model\AbstractModel.php: 
+        )
+
+)
+
+2015-03-02T20:04:02+08:00 [Session] checkSession
+2015-03-02T20:04:02+08:00 [Session] model\SessionModel Object
+(
+    [data:core\data_struct\BasicData:private] => Array
+        (
+            [client_from] => CUSTOMER
+            [access_token] => 
+            [device_token] => 
+        )
+
+)
+
+2015-03-02T20:04:03+08:00 [Route] Array
+(
+    [code] => 402
+    [data] => Array
+        (
+            [success] => false
+            [message] => Assertion Failed: Line 85 in D:\wamp\www\o_o\core\model\AbstractModel.php: [desc]FF
+        )
+
+)
+
+2015-03-02T20:04:33+08:00 [Session] checkSession
+2015-03-02T20:04:33+08:00 [Session] model\SessionModel Object
+(
+    [data:core\data_struct\BasicData:private] => Array
+        (
+            [client_from] => CUSTOMER
+            [access_token] => 
+            [device_token] => 
+        )
+
+)
+
+2015-03-02T20:04:33+08:00 [Route] Array
+(
+    [code] => 402
+    [data] => Array
+        (
+            [success] => false
+            [message] => Assertion Failed: Line 85 in D:\wamp\www\o_o\core\model\AbstractModel.php: [desc]neiru.user-user_id
+        )
+
+)
+
+2015-03-02T20:06:02+08:00 [Session] checkSession
+2015-03-02T20:06:02+08:00 [Session] model\SessionModel Object
+(
+    [data:core\data_struct\BasicData:private] => Array
+        (
+            [client_from] => CUSTOMER
+            [access_token] => 
+            [device_token] => 
+        )
+
+)
+
+2015-03-02T20:06:02+08:00 [Route] Array
+(
+    [code] => 402
+    [data] => Array
+        (
+            [success] => false
+            [message] => Assertion Failed: Line 85 in D:\wamp\www\o_o\core\model\AbstractModel.php: [desc]user_id of neiru.user is not set
+        )
+
+)
+
+2015-03-02T20:06:34+08:00 [Session] checkSession
+2015-03-02T20:06:34+08:00 [Session] model\SessionModel Object
+(
+    [data:core\data_struct\BasicData:private] => Array
+        (
+            [client_from] => CUSTOMER
+            [access_token] => 
+            [device_token] => 
+        )
+
+)
+
+2015-03-02T20:08:04+08:00 [Session] checkSession
+2015-03-02T20:08:04+08:00 [Session] model\SessionModel Object
+(
+    [data:core\data_struct\BasicData:private] => Array
+        (
+            [client_from] => CUSTOMER
+            [access_token] => 
+            [device_token] => 
+        )
+
+)
+
+2015-03-02T20:10:15+08:00 [Session] checkSession
+2015-03-02T20:10:15+08:00 [Session] model\SessionModel Object
+(
+    [data:core\data_struct\BasicData:private] => Array
+        (
+            [client_from] => CUSTOMER
+            [access_token] => 
+            [device_token] => 
+        )
+
+)
+
+2015-03-02T20:10:15+08:00 [Route] flight\net\Request Object
+(
+    [url] => /
+    [base] => /o_o
+    [method] => GET
+    [referrer] => 
+    [ip] => ::1
+    [ajax] => 
+    [scheme] => HTTP/1.1
+    [user_agent] => Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.115 Safari/537.36
+    [type] => 
+    [length] => 0
+    [query] => flight\util\Collection Object
+        (
+            [data:flight\util\Collection:private] => Array
+                (
+                )
+
+        )
+
+    [data] => flight\util\Collection Object
+        (
+            [data:flight\util\Collection:private] => Array
+                (
+                )
+
+        )
+
+    [cookies] => flight\util\Collection Object
+        (
+            [data:flight\util\Collection:private] => Array
+                (
+                )
+
+        )
+
+    [files] => flight\util\Collection Object
+        (
+            [data:flight\util\Collection:private] => Array
+                (
+                )
+
+        )
+
+    [secure] => 
+    [accept] => text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+    [proxy_ip] => 
+)
+
+2015-03-02T20:18:42+08:00 [Session] checkSession
+2015-03-02T20:18:42+08:00 [Session] model\SessionModel Object
+(
+    [data:core\data_struct\BasicData:private] => Array
+        (
+            [client_from] => CUSTOMER
+            [access_token] => {{access_token}}
+            [device_token] => {{device_token}}
+        )
+
+)
+
+2015-03-02T20:18:42+08:00 [Route] flight\net\Request Object
+(
+    [url] => /profile/login
+    [base] => /o_o
+    [method] => POST
+    [referrer] => 
+    [ip] => ::1
+    [ajax] => 
+    [scheme] => HTTP/1.1
+    [user_agent] => Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.115 Safari/537.36
+    [type] => multipart/form-data; boundary=----WebKitFormBoundaryJf5bW1DhhRAFetzu
+    [length] => 254
+    [query] => flight\util\Collection Object
+        (
+            [data:flight\util\Collection:private] => Array
+                (
+                )
+
+        )
+
+    [data] => flight\util\Collection Object
+        (
+            [data:flight\util\Collection:private] => Array
+                (
+                    [mobile] => {{mobile}}
+                    [sms_code] => {{sms_code}}
+                )
+
+        )
+
+    [cookies] => flight\util\Collection Object
+        (
+            [data:flight\util\Collection:private] => Array
+                (
+                )
+
+        )
+
+    [files] => flight\util\Collection Object
+        (
+            [data:flight\util\Collection:private] => Array
+                (
+                )
+
+        )
+
+    [secure] => 
+    [accept] => */*
+    [proxy_ip] => 
+)
+
+2015-03-02T20:18:42+08:00 [Route] Array
+(
+    [code] => 200
+    [data] => Array
+        (
+            [success] => false
+            [message] => 手机号必须为1开头的11位数字，请检查
+        )
+
+)
+
+2015-03-02T20:19:21+08:00 [Session] checkSession
+2015-03-02T20:19:21+08:00 [Session] model\SessionModel Object
+(
+    [data:core\data_struct\BasicData:private] => Array
+        (
+            [client_from] => CUSTOMER
+            [access_token] => {{access_token}}
+            [device_token] => {{device_token}}
+        )
+
+)
+
+2015-03-02T20:19:21+08:00 [Route] flight\net\Request Object
+(
+    [url] => /profile/sms_vert_code
+    [base] => /o_o
+    [method] => POST
+    [referrer] => 
+    [ip] => ::1
+    [ajax] => 
+    [scheme] => HTTP/1.1
+    [user_agent] => Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.115 Safari/537.36
+    [type] => multipart/form-data; boundary=----WebKitFormBoundaryxehO0lyryk85pcsh
+    [length] => 148
+    [query] => flight\util\Collection Object
+        (
+            [data:flight\util\Collection:private] => Array
+                (
+                )
+
+        )
+
+    [data] => flight\util\Collection Object
+        (
+            [data:flight\util\Collection:private] => Array
+                (
+                    [mobile] => 13777825922
+                )
+
+        )
+
+    [cookies] => flight\util\Collection Object
+        (
+            [data:flight\util\Collection:private] => Array
+                (
+                )
+
+        )
+
+    [files] => flight\util\Collection Object
+        (
+            [data:flight\util\Collection:private] => Array
+                (
+                )
+
+        )
+
+    [secure] => 
+    [accept] => */*
+    [proxy_ip] => 
+)
+
+2015-03-02T20:36:54+08:00 [Session] checkSession
+2015-03-02T20:36:54+08:00 [Session] model\SessionModel Object
+(
+    [data:core\data_struct\BasicData:private] => Array
+        (
+            [client_from] => CUSTOMER
+            [access_token] => 
+            [device_token] => 
+        )
+
+)
+
+2015-03-02T20:36:54+08:00 [Route] flight\net\Request Object
+(
+    [url] => /
+    [base] => /o_o
+    [method] => GET
+    [referrer] => 
+    [ip] => ::1
+    [ajax] => 
+    [scheme] => HTTP/1.1
+    [user_agent] => Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.115 Safari/537.36
+    [type] => 
+    [length] => 0
+    [query] => flight\util\Collection Object
+        (
+            [data:flight\util\Collection:private] => Array
+                (
+                )
+
+        )
+
+    [data] => flight\util\Collection Object
+        (
+            [data:flight\util\Collection:private] => Array
+                (
+                )
+
+        )
+
+    [cookies] => flight\util\Collection Object
+        (
+            [data:flight\util\Collection:private] => Array
+                (
+                )
+
+        )
+
+    [files] => flight\util\Collection Object
+        (
+            [data:flight\util\Collection:private] => Array
+                (
+                )
+
+        )
+
+    [secure] => 
+    [accept] => text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+    [proxy_ip] => 
+)
+
+2015-03-02T20:36:59+08:00 [Session] checkSession
+2015-03-02T20:36:59+08:00 [Session] model\SessionModel Object
+(
+    [data:core\data_struct\BasicData:private] => Array
+        (
+            [client_from] => CUSTOMER
+            [access_token] => {{access_token}}
+            [device_token] => {{device_token}}
+        )
+
+)
+
+2015-03-02T20:36:59+08:00 [Route] flight\net\Request Object
+(
+    [url] => /profile/sms_vert_code
+    [base] => /o_o
+    [method] => POST
+    [referrer] => 
+    [ip] => ::1
+    [ajax] => 
+    [scheme] => HTTP/1.1
+    [user_agent] => Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.115 Safari/537.36
+    [type] => multipart/form-data; boundary=----WebKitFormBoundary2d5uMovQyBeCxxid
+    [length] => 148
+    [query] => flight\util\Collection Object
+        (
+            [data:flight\util\Collection:private] => Array
+                (
+                )
+
+        )
+
+    [data] => flight\util\Collection Object
+        (
+            [data:flight\util\Collection:private] => Array
+                (
+                    [mobile] => 13777825922
+                )
+
+        )
+
+    [cookies] => flight\util\Collection Object
+        (
+            [data:flight\util\Collection:private] => Array
+                (
+                )
+
+        )
+
+    [files] => flight\util\Collection Object
+        (
+            [data:flight\util\Collection:private] => Array
+                (
+                )
+
+        )
+
+    [secure] => 
+    [accept] => */*
+    [proxy_ip] => 
+)
+
+2015-03-02T20:38:13+08:00 [Session] checkSession
+2015-03-02T20:38:13+08:00 [Session] model\SessionModel Object
+(
+    [data:core\data_struct\BasicData:private] => Array
+        (
+            [client_from] => CUSTOMER
+            [access_token] => {{access_token}}
+            [device_token] => {{device_token}}
+        )
+
+)
+
+2015-03-02T20:38:13+08:00 [Route] flight\net\Request Object
+(
+    [url] => /profile/sms_vert_code
+    [base] => /o_o
+    [method] => POST
+    [referrer] => 
+    [ip] => ::1
+    [ajax] => 
+    [scheme] => HTTP/1.1
+    [user_agent] => Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.115 Safari/537.36
+    [type] => multipart/form-data; boundary=----WebKitFormBoundaryZfU86GgdNbEG5bV3
+    [length] => 148
+    [query] => flight\util\Collection Object
+        (
+            [data:flight\util\Collection:private] => Array
+                (
+                )
+
+        )
+
+    [data] => flight\util\Collection Object
+        (
+            [data:flight\util\Collection:private] => Array
+                (
+                    [mobile] => 13777825922
+                )
+
+        )
+
+    [cookies] => flight\util\Collection Object
+        (
+            [data:flight\util\Collection:private] => Array
+                (
+                )
+
+        )
+
+    [files] => flight\util\Collection Object
+        (
+            [data:flight\util\Collection:private] => Array
+                (
+                )
+
+        )
+
+    [secure] => 
+    [accept] => */*
+    [proxy_ip] => 
+)
+
+2015-03-02T20:38:43+08:00 [Session] checkSession
+2015-03-02T20:38:43+08:00 [Session] model\SessionModel Object
+(
+    [data:core\data_struct\BasicData:private] => Array
+        (
+            [client_from] => CUSTOMER
+            [access_token] => 
+            [device_token] => 
+        )
+
+)
+
+2015-03-02T20:38:43+08:00 [Route] flight\net\Request Object
+(
+    [url] => /
+    [base] => /o_o
+    [method] => GET
+    [referrer] => 
+    [ip] => ::1
+    [ajax] => 
+    [scheme] => HTTP/1.1
+    [user_agent] => Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.115 Safari/537.36
+    [type] => 
+    [length] => 0
+    [query] => flight\util\Collection Object
+        (
+            [data:flight\util\Collection:private] => Array
+                (
+                )
+
+        )
+
+    [data] => flight\util\Collection Object
+        (
+            [data:flight\util\Collection:private] => Array
+                (
+                )
+
+        )
+
+    [cookies] => flight\util\Collection Object
+        (
+            [data:flight\util\Collection:private] => Array
+                (
+                )
+
+        )
+
+    [files] => flight\util\Collection Object
+        (
+            [data:flight\util\Collection:private] => Array
+                (
+                )
+
+        )
+
+    [secure] => 
+    [accept] => text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+    [proxy_ip] => 
+)
+
+2015-03-02T20:38:45+08:00 [Session] checkSession
+2015-03-02T20:38:45+08:00 [Session] model\SessionModel Object
+(
+    [data:core\data_struct\BasicData:private] => Array
+        (
+            [client_from] => CUSTOMER
+            [access_token] => {{access_token}}
+            [device_token] => {{device_token}}
+        )
+
+)
+
+2015-03-02T20:38:45+08:00 [Route] flight\net\Request Object
+(
+    [url] => /profile/sms_vert_code
+    [base] => /o_o
+    [method] => POST
+    [referrer] => 
+    [ip] => ::1
+    [ajax] => 
+    [scheme] => HTTP/1.1
+    [user_agent] => Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.115 Safari/537.36
+    [type] => multipart/form-data; boundary=----WebKitFormBoundarybzvE60rWEM65aQZR
+    [length] => 148
+    [query] => flight\util\Collection Object
+        (
+            [data:flight\util\Collection:private] => Array
+                (
+                )
+
+        )
+
+    [data] => flight\util\Collection Object
+        (
+            [data:flight\util\Collection:private] => Array
+                (
+                    [mobile] => 13777825922
+                )
+
+        )
+
+    [cookies] => flight\util\Collection Object
+        (
+            [data:flight\util\Collection:private] => Array
+                (
+                )
+
+        )
+
+    [files] => flight\util\Collection Object
+        (
+            [data:flight\util\Collection:private] => Array
+                (
+                )
+
+        )
+
+    [secure] => 
+    [accept] => */*
+    [proxy_ip] => 
+)
+
+2015-03-02T20:39:35+08:00 [Session] checkSession
+2015-03-02T20:39:35+08:00 [Session] model\SessionModel Object
+(
+    [data:core\data_struct\BasicData:private] => Array
+        (
+            [client_from] => CUSTOMER
+            [access_token] => {{access_token}}
+            [device_token] => {{device_token}}
+        )
+
+)
+
+2015-03-02T20:39:35+08:00 [Route] flight\net\Request Object
+(
+    [url] => /profile/sms_vert_code
+    [base] => /o_o
+    [method] => POST
+    [referrer] => 
+    [ip] => ::1
+    [ajax] => 
+    [scheme] => HTTP/1.1
+    [user_agent] => Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.115 Safari/537.36
+    [type] => multipart/form-data; boundary=----WebKitFormBoundaryvAPqpExmNsB7FiWK
+    [length] => 148
+    [query] => flight\util\Collection Object
+        (
+            [data:flight\util\Collection:private] => Array
+                (
+                )
+
+        )
+
+    [data] => flight\util\Collection Object
+        (
+            [data:flight\util\Collection:private] => Array
+                (
+                    [mobile] => 13777825922
+                )
+
+        )
+
+    [cookies] => flight\util\Collection Object
+        (
+            [data:flight\util\Collection:private] => Array
+                (
+                )
+
+        )
+
+    [files] => flight\util\Collection Object
+        (
+            [data:flight\util\Collection:private] => Array
+                (
+                )
+
+        )
+
+    [secure] => 
+    [accept] => */*
+    [proxy_ip] => 
+)
+
+2015-03-02T20:40:56+08:00 [Session] checkSession
+2015-03-02T20:40:56+08:00 [Session] model\SessionModel Object
+(
+    [data:core\data_struct\BasicData:private] => Array
+        (
+            [client_from] => CUSTOMER
+            [access_token] => {{access_token}}
+            [device_token] => {{device_token}}
+        )
+
+)
+
+2015-03-02T20:40:56+08:00 [Route] flight\net\Request Object
+(
+    [url] => /profile/sms_vert_code
+    [base] => /o_o
+    [method] => POST
+    [referrer] => 
+    [ip] => ::1
+    [ajax] => 
+    [scheme] => HTTP/1.1
+    [user_agent] => Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.115 Safari/537.36
+    [type] => multipart/form-data; boundary=----WebKitFormBoundaryMMdkT2XSHH6IQ3iF
+    [length] => 148
+    [query] => flight\util\Collection Object
+        (
+            [data:flight\util\Collection:private] => Array
+                (
+                )
+
+        )
+
+    [data] => flight\util\Collection Object
+        (
+            [data:flight\util\Collection:private] => Array
+                (
+                    [mobile] => 13777825922
+                )
+
+        )
+
+    [cookies] => flight\util\Collection Object
+        (
+            [data:flight\util\Collection:private] => Array
+                (
+                )
+
+        )
+
+    [files] => flight\util\Collection Object
+        (
+            [data:flight\util\Collection:private] => Array
+                (
+                )
+
+        )
+
+    [secure] => 
+    [accept] => */*
+    [proxy_ip] => 
+)
+
+2015-03-02T20:40:58+08:00 [Route] Array
+(
+    [code] => 200
+    [data] => Array
+        (
+            [success] => true
+            [message] => 
+        )
+
+)
+
+2015-03-02T21:56:31+08:00 [Session] checkSession
+2015-03-02T21:56:31+08:00 [Session] model\SessionModel Object
+(
+    [data:core\data_struct\BasicData:private] => Array
+        (
+            [client_from] => CUSTOMER
+            [access_token] => {{access_token}}
+            [device_token] => {{device_token}}
+        )
+
+)
+
+2015-03-02T21:56:31+08:00 [Route] flight\net\Request Object
+(
+    [url] => /profile/sms_vert_code
+    [base] => /o_o
+    [method] => POST
+    [referrer] => 
+    [ip] => ::1
+    [ajax] => 
+    [scheme] => HTTP/1.1
+    [user_agent] => Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.115 Safari/537.36
+    [type] => multipart/form-data; boundary=----WebKitFormBoundary2zs3mWJDAZz89300
+    [length] => 148
+    [query] => flight\util\Collection Object
+        (
+            [data:flight\util\Collection:private] => Array
+                (
+                )
+
+        )
+
+    [data] => flight\util\Collection Object
+        (
+            [data:flight\util\Collection:private] => Array
+                (
+                    [mobile] => 13777825922
+                )
+
+        )
+
+    [cookies] => flight\util\Collection Object
+        (
+            [data:flight\util\Collection:private] => Array
+                (
+                )
+
+        )
+
+    [files] => flight\util\Collection Object
+        (
+            [data:flight\util\Collection:private] => Array
+                (
+                )
+
+        )
+
+    [secure] => 
+    [accept] => */*
+    [proxy_ip] => 
+)
+
+2015-03-02T21:56:32+08:00 [Route] Array
+(
+    [code] => 200
+    [data] => Array
+        (
+            [success] => true
+            [message] => 
+        )
+
+)
+
+2015-03-02T23:29:27+08:00 [Session] checkSession
+2015-03-02T23:29:27+08:00 [Session] model\SessionModel Object
+(
+    [data:core\data_struct\BasicData:private] => Array
+        (
+            [client_from] => CUSTOMER
+            [access_token] => 
+            [device_token] => 
+        )
+
+)
+
+2015-03-02T23:29:28+08:00 [Route] flight\net\Request Object
+(
+    [url] => /
+    [base] => /o_o
+    [method] => GET
+    [referrer] => 
+    [ip] => ::1
+    [ajax] => 
+    [scheme] => HTTP/1.1
+    [user_agent] => Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.115 Safari/537.36
+    [type] => 
+    [length] => 0
+    [query] => flight\util\Collection Object
+        (
+            [data:flight\util\Collection:private] => Array
+                (
+                )
+
+        )
+
+    [data] => flight\util\Collection Object
+        (
+            [data:flight\util\Collection:private] => Array
+                (
+                )
+
+        )
+
+    [cookies] => flight\util\Collection Object
+        (
+            [data:flight\util\Collection:private] => Array
+                (
+                )
+
+        )
+
+    [files] => flight\util\Collection Object
+        (
+            [data:flight\util\Collection:private] => Array
+                (
+                )
+
+        )
+
+    [secure] => 
+    [accept] => text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+    [proxy_ip] => 
+)
+
+2015-03-02T23:58:18+08:00 [Session] checkSession
+2015-03-02T23:58:18+08:00 [Session] model\SessionModel Object
+(
+    [data:core\data_struct\BasicData:private] => Array
+        (
+            [client_from] => CUSTOMER
+            [access_token] => 
+            [device_token] => 
+        )
+
+)
+
+2015-03-02T23:58:18+08:00 [Route] flight\net\Request Object
+(
+    [url] => /
+    [base] => /o_o
+    [method] => GET
+    [referrer] => 
+    [ip] => ::1
+    [ajax] => 
+    [scheme] => HTTP/1.1
+    [user_agent] => Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.115 Safari/537.36
+    [type] => 
+    [length] => 0
+    [query] => flight\util\Collection Object
+        (
+            [data:flight\util\Collection:private] => Array
+                (
+                )
+
+        )
+
+    [data] => flight\util\Collection Object
+        (
+            [data:flight\util\Collection:private] => Array
+                (
+                )
+
+        )
+
+    [cookies] => flight\util\Collection Object
+        (
+            [data:flight\util\Collection:private] => Array
+                (
+                )
+
+        )
+
+    [files] => flight\util\Collection Object
+        (
+            [data:flight\util\Collection:private] => Array
+                (
+                )
+
+        )
+
+    [secure] => 
+    [accept] => text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+    [proxy_ip] => 
+)
+
