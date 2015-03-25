@@ -17,7 +17,7 @@ class SessionModel extends \core\model\AbstractModelEntity{
     	return array('access_token','device_token','remote_addr');
     }
     protected function tableName(){
-    	return "neiru.session";
+    	return "session";
     }
     protected function idName(){
     	return "session_id";

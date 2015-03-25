@@ -2,7 +2,7 @@
 namespace core\model;
 use Flight;
 use Logger;
-require_once "AbstractModel.php";
+require_once __DIR__."/AbstractModel.php";
 
 abstract class AbstractModelRelation extends AbstractModel{
     protected function requiredSegs(){

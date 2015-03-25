@@ -19,7 +19,7 @@ class UserModel extends \core\model\AbstractModelEntity{
             'last_device_id', 'last_ip', 'last_login_time');
     }
     protected function tableName(){
-    	return "neiru.user";
+    	return "user";
     }
     protected function idName(){
     	return "user_id";
