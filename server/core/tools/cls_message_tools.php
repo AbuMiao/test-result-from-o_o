@@ -2,65 +2,42 @@
 namespace core\tools;
 use Flight;
 
-Flight::map('sendSMSCode', array("core\\tools\\ClsMessageTools", "sendSMS"));
+Flight::map('sendSMSVertCodeMsg', array("core\\tools\\ClsMessageTools_Juhe", "sendSMSVertCodeMsg"));
+class ClsMessageTools_Juhe {
+	static public function sendSMSVertCodeMsg($mobile, $sms_vert_code){
+		return ClsMessageTools_Juhe::sendSMS($mobile, 2210, array("code"=>$sms_vert_code));
+	}
 
-class ClsMessageTools {
+	static private function sendSMS($mobile, $tpl_id, $tpl_values) {
+		$url = "http://v.juhe.cn/sms/send";
+		$message_key = "1d67f826225831e9ccbfe988319307c5";
+		$tpl_value_arr = array();
+		foreach ($tpl_values as $key => $value) {
+			$tpl_value_arr[] = "#".$key."#=".$value;
+		}
+		$tpl_value = urlencode(implode("&", $tpl_value_arr));
+		$query_data = "mobile={$mobile}&tpl_id={$tpl_id}&tpl_value={$tpl_value}&key={$message_key}";
 
-	static public function sendSMS($mobiles=array(), $content) {
-		$path="config/message.ini";
-		$config = new \Config_Lite($path);
-		$url = $config['yidu']['message_url'];
-		$key = $config['yidu']['message_key'];
-		$secret = $config['yidu']['message_secret'];
-		$session = $config['yidu']['message_session'];
-		$postfix = $config['yidu']['message_postfix'];
-		$msg = $content . " " . $postfix;
-
-		$send_mobiles = implode(',', $mobiles);
-		$post_data = "zh={$key}&mm={$secret}&sms_type={$session}&hm={$send_mobiles}&nr=$msg";
-	
 		$ch = curl_init();
+		$url = $url . "?". $query_data;
 		curl_setopt($ch, CURLOPT_URL, $url);
 		curl_setopt($ch, CURLOPT_HEADER, 0);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-		curl_setopt($ch, CURLOPT_POST, 1);
-		curl_setopt($ch, CURLOPT_POSTFIELDS, $post_data);
-
-        $response = curl_exec($ch);
-		if ($response == NULL) {
-			curl_close($ch);
-			ClsMessageTools::saveSMS($mobiles, $msg, 0);
-			return false;
-		}
-
+		$response = curl_exec($ch);
 		$error = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-		if($error != "200") {
-			curl_close($ch);
-			ClsMessageTools::saveSMS($mobiles, $msg, 0);
-            return false;
-		}
-	
-		if(strpos($response,"0:") === 0) {
-			$response = 0;
-		}
-
 		curl_close($ch);
-		ClsMessageTools::saveSMS($mobiles, $msg, 1);
-		return $response;
+
+		$response = json_decode($response);
+		$send_result = ($error == "200" && $response->error_code==0) ? '1' : '0';
+		ClsMessageTools_Juhe::saveSMS($mobile, $tpl_value, $send_result, $message);
+		print_r($message);
+		return $send_result;
 	}
-	
-	static private function saveSMS($mobiles=array(), $content, $send_result) {
-		if (!empty($mobiles)) {
-			foreach ($mobiles as $key => $mobile) {
-				$sql = "insert into o_o.message_history
-                         (result, type, send_time, dest_mobile, user_id, content, server_name) 
-						values 
-                         ({$send_result}, 'SINGLE', now(), '{$mobile}', '49', '{$content}', 'yidu')   
-				";
-				Flight::sms_db()->query($sql);
-			}
-		}
+
+	static private function saveSMS($mobile, $content, $send_result, &$message) {
+		require_once __DIR__."/../../models/MessageHistoryModel.php";
+		$data = array('dest_mobile'=>$mobile, 'content'=>$content, 'server_name'=>'juhe', 'result'=>$send_result);
+		$message_history_model = new \model\MessageHistoryModel($data);
+		return $message_history_model->insertIntoDB($message);
 	}
 }
-
-

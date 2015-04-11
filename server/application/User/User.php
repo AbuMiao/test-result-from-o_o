@@ -8,6 +8,7 @@ use Flight;
 use Logger;
 
 require_once __DIR__."/../../models/UserModel.php";
+require_once __DIR__."/../../models/SmsVertModel.php";
 require_once __DIR__."/../Role/Role.php";
 require_once __DIR__."/../Client/Client.php";
 
@@ -162,28 +163,30 @@ class User extends \core\data_struct\BasicData{
 
 	//sms_vert_code
     static public function cbSmsVertCode(){
-        $success = false;
+        $success = true;
         $message = "";
-    	$sms_code = User::generateSmsVertCode();
-		$sms_msg = User::generateSmsContent($sms_code);
-    	$mobile = Flight::request()->data->mobile;
-    	if (!preg_match("/^\d{11}$/",$mobile)){
+        $sms_code = User::generateSmsVertCode();
+        $mobile = Flight::request()->data->mobile;
+        if (!preg_match("/^\d{11}$/",$mobile)){
             $success = false;
             $message = "手机号必须为1开头的11位数字,请检查手机号";
-    	}else{
-			Flight::sendSMSCode(array($mobile), $sms_msg);
-	    	$sql = "INSERT INTO neiru.sms_vert (mobile,sms_code,expiry_stamp,created_time, last_updated_time)
-						VALUES ('{$mobile}','{$sms_code}', UNIX_TIMESTAMP(now())+600,NOW(),NOW())
-					ON DUPLICATE KEY UPDATE sms_code='{$sms_code}', expiry_stamp=UNIX_TIMESTAMP(now())+600,last_updated_time=NOW()";
-			if(!Flight::db()->query($sql)){
-                $success = false;
-                $message = "服务器错误(数据库插入记录失败)".$sql;
+        }else{
+            $sms_vert_model = new \model\SmsVertModel(array('mobile'=>$mobile));
+            $sms_vert_data = array(
+                "sms_code" => $sms_code,
+                "expiry_stamp" => time() + 600);
+            $sms_vert_model->setData($sms_vert_data);
+            Flight::db()->start_transaction();
+            if($sms_vert_model->saveToDB($message) && Flight::sendSMSVertCodeMsg($mobile, $sms_code)){
+                Flight::db()->commit();
             }
             else{
-                $success = true;
+                $success = false;
+                $message = "数据库操作失败[".$message."] 或 短信发送失败";
+                Flight::db()->rollback();
             }
-    	}
-    	Flight::sendRouteResult($success, null, $message);
+        }
+        Flight::sendRouteResult($success, null, $message);
     }
 
     static private function generateSmsVertCode(){
