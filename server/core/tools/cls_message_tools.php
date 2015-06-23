@@ -30,7 +30,6 @@ class ClsMessageTools_Juhe {
 		$response = json_decode($response);
 		$send_result = ($error == "200" && $response->error_code==0) ? '1' : '0';
 		ClsMessageTools_Juhe::saveSMS($mobile, $tpl_value, $send_result, $message);
-		print_r($message);
 		return $send_result;
 	}
 

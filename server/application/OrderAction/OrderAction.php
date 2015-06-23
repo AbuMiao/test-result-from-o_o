@@ -28,7 +28,7 @@ abstract class OrderAction extends Basic{
                 $action_cls_list = array("OrderAction_setWorker");
                 break;
             case 'confirmPayment':
-                $sql = "select order_status from neiru.order where order_id = '{$order_id}';";
+                $sql = "select order_status from order where order_id = '{$order_id}';";
                 $order_status = Flight::db()->getOne($sql);
                 if($order_status == 'TO_CHECK')
                     $action_cls_list[] = "OrderAction_confirmOrder";
@@ -40,7 +40,7 @@ abstract class OrderAction extends Basic{
                 $action_cls_list = array("OrderAction_setoff");
                 break;
             case 'arrive':
-                $sql = "select service_type from neiru.order where order_id = '{$order_id}';";
+                $sql = "select service_type from order where order_id = '{$order_id}';";
                 $service_type = Flight::db()->getOne($sql);
                 if($service_type=='to_the_door')
                     $action_cls_list = array("OrderAction_workerArrive");
@@ -62,7 +62,7 @@ abstract class OrderAction extends Basic{
                 $action_cls_list = array("OrderAction_comment");
                 break;
             case 'cancelOrder':
-                $sql = "select pay_status from neiru.order where order_id = '{$order_id}';";
+                $sql = "select pay_status from order where order_id = '{$order_id}';";
                 $pay_status = Flight::db()->getOne($sql);
                 $action_cls_list[] = "OrderAction_cancelOrder";
                 if($pay_status == "PAID")
@@ -110,7 +110,7 @@ abstract class OrderAction extends Basic{
     //订单更新操作之付款确认(第三方支付回调调用)
     static public function confirmPayment($order_sn, $pay_from, $trans_id, $trans_status, $amount, $ori_data_in_json, &$message = ''){
         $action_cls_list = array();
-        $order_id = Flight::db()->getOne("select order_id from neiru.order where order_sn = '{$order_sn}';");
+        $order_id = Flight::db()->getOne("select order_id from order where order_sn = '{$order_sn}';");
         if($order_id > 0){
             $data = array(
                 "method" => "ONLINE",
@@ -134,7 +134,7 @@ abstract class OrderAction extends Basic{
     //订单更新操作之批量取消超时订单(定时任务调用)
     static public function cancelTimeoutOrders(){
         $action_cls_list = array();
-        $sql = "select order_id from neiru.order where pay_status = 'TO_PAY' and order_status = 'TO_CHECK' and order_time < DATE_ADD(now(), INTERVAL -15 MINUTE) limit 10;";
+        $sql = "select order_id from order where pay_status = 'TO_PAY' and order_status = 'TO_CHECK' and order_time < DATE_ADD(now(), INTERVAL -15 MINUTE) limit 10;";
         $order_ids = Flight::db()->getCol($sql);
         foreach ($order_ids as $order_id) {
             // parse action
@@ -179,7 +179,7 @@ abstract class OrderAction extends Basic{
 
     public function __construct($order_id, $action, $action_data){
         if($order_id > 0){
-            $sql = "select order_id, worker_id, service_type as order_service_type, order_status, pay_method, pay_status from neiru.order where order_id = '{$order_id}'";
+            $sql = "select order_id, worker_id, service_type as order_service_type, order_status, pay_method, pay_status from order where order_id = '{$order_id}'";
             $data = Flight::db()->getRow($sql);
             assert(!empty($data));
         }else{
@@ -232,14 +232,14 @@ abstract class OrderAction extends Basic{
         return false;
     }
     protected function record(&$message){
-        $sql = "select order_id, order_status, pay_status from neiru.order where order_id = '{$this->order_id}'";
+        $sql = "select order_id, order_status, pay_status from order where order_id = '{$this->order_id}'";
         $data = Flight::db()->getRow($sql);
         $data['action'] = $this->action;
         $data['action_type'] = OrderAction::getType($this->action);
         $data['action_time'] = date("Y-m-d H:i:s");
         $data['action_note'] = isset($this->action_note) ? $this->action_note : "";
         $order_action_record = new Basic($data);
-        return $order_action_record->saveToDB('neiru.order_action');
+        return $order_action_record->saveToDB('order_action');
     }
 
     static public function getType($action){
@@ -257,18 +257,8 @@ abstract class OrderAction extends Basic{
             OrderAction::$status_mapping = array(
                 "CUSTOMER_PLACE_ORDER" => array('ORDER', '生成订单'),
                 "CUSTOMER_PAY_ORDER" => array('ORDER', '顾客付款'),
-                "WORKER_CONFIRM_ORDER" => array('SERVICE', '美甲师确认'),
-                "WORKER_SETOFF" => array('SERVICE', '美甲师出发'),
-                "WORKER_ARRIVE" => array('SERVICE', '美甲师到达'),
-                "WORKER_STRAT_SERVICE" => array('SERVICE', '美甲师开始服务'),
-                "WORKER_FINISH_SERVICE" => array('SERVICE', '美甲师完成服务'),
-                "CUSTOMER_CONFIRM_SERVICE" => array('ORDER', '顾客确认服务完成'),
-                "CUSTOMER_APPLY_REFUND" => array('REFUND', '顾客发起退款'),
-                "CS_FINISH_REFUND" => array('REFUND', '客服完成退款'),
-                "CUSTOMER_COMMENT" => array('ORDER', '顾客评论'),
-                "WORKER_ADD_FEE" => array('ORDER', '美甲师追加费用'),
-                "CUSTOMER_SECOND_PAY_ORDER" => array('ORDER', '顾客二次付款'),
                 "CUSTOMER_CANCEL" => array('ORDER', '顾客取消订单'),
+                //...
                 );
         }
     }
@@ -285,49 +275,31 @@ abstract class OrderAction extends Basic{
             return false;
         }
 
+        $sql = "SELECT pay_amount FROM neiru.`order` where order_id = '{$order_id}';";
+        $pay_amount = Flight::db()->getOne($sql);
 
-
-        $sql = "SELECT pay_amount, online_pay_amount FROM neiru.`order` where order_id = '{$order_id}';";
-        $pay_amounts = Flight::db()->getRow($sql);
-        $pay_amount = $pay_amounts['pay_amount'];
-        $online_pay_amount = $pay_amounts['online_pay_amount'];
-
-        $sql = "SELECT type, method, sum(ifnull(amount,0)) as amount
-                FROM neiru.order_pay_refund
-                where order_id = '{$order_id}'
-                GROUP BY type, method;";
-        $pay_refund_records = Flight::db()->getAll($sql);
-        $online_paid_amount = $online_refund_amount = $offline_paid_amount = $offline_refund_amount = 0;
-        foreach ($pay_refund_records as $pay_refund) {
-            if($pay_refund['method'] == "ONLINE" && $pay_refund['type']=="PAY")
-                $online_paid_amount = $pay_refund['amount'];
-            else if($pay_refund['method'] == "ONLINE" && $pay_refund['type']=="REFUND")
-                $online_refund_amount = $pay_refund['amount'];
-            else if($pay_refund['method'] == "OFFLINE" && $pay_refund['type']=="PAY")
-                $offline_paid_amount = $pay_refund['amount'];
-            else if($pay_refund['method'] == "OFFLINE" && $pay_refund['type']=="REFUND")
-                $offline_refund_amount = $pay_refund['amount'];
+        $pay_refund_infos = array();
+        Order::payRefundInfoOfOrders(array($order_id), $pay_refund_infos);
+        if(isset($pay_refund_infos[$order_id])){
+            $paid_summary = $pay_refund_infos[$order_id]['summary'];
+        }else{
+            $paid_summary = 0;
         }
-        $paid_amount = $online_paid_amount + $offline_paid_amount;
-        $refund_amount = $online_refund_amount + $offline_refund_amount;
+        $to_amount = $pay_amount - $paid_summary;
 
+        Logger::getLogger("Payment")->debug("Payment_weixin in pay_refund");
+        Logger::getLogger("Payment")->debug($type." - ".$to_amount." - ".$amount);
         if($type == "PAY"){
             // 付款
             $pay_status = "PAID";
-            if($method == "ONLINE"){
-                $to_amount = $online_pay_amount - $online_paid_amount;
-            }else{
-                $to_amount = $pay_amount - $paid_amount;
-            }
         }else{
             // 退款
             $pay_status = "REFUND_PASS_AND_SUCC";
-            $to_amount = $paid_amount - $refund_amount;
-            $message .= "待实现";
-            return false;
+            $to_amount = -$to_amount;
         }
 
-        if($to_amount != $amount){
+        $amount = doubleval($amount);
+        if(abs($to_amount-$amount)>0.001){
             $message .= "待付/退款金额" . $to_amount . "与当前金额" . $amount . "不一致";
             return false;
         }
@@ -343,6 +315,9 @@ abstract class OrderAction extends Basic{
                 'method'=>$method, 'sub_method'=>$sub_method, 'out_trans_id'=>$out_trans_id, 'out_trans_status'=>$out_trans_status,
                 'amount'=>$amount, 'ori_data'=>$ori_data,
                 'action_time'=>date('Y-m-d H:i:s')));
+        Logger::getLogger("Payment")->debug($pay_refund);
+        Logger::getLogger("Payment")->debug($pay_status);
+        Logger::getLogger("Payment")->debug($message);
         return $pay_refund->saveToDB("neiru.order_pay_refund") && Order::updateOrderByID($order_id, array('pay_status'=> $pay_status));
     }
 }

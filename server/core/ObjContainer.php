@@ -23,6 +23,7 @@ Flight::map('sendRouteResult', function($success, $data, $message = "", $err_cod
 	//print_r($result);die();
 	convertArrayDataToString($result);
 	Logger::getLogger("Route")->debug($result);
+	//print_r($result);
 	Flight::json($result);
 });
 function convertArrayDataToString(&$data){
@@ -35,8 +36,6 @@ function convertArrayDataToString(&$data){
 		$data = (string)$data;
 	}
 }
-
-
 
 require_once($basic_dir.'/log4php/Logger.php');
 Logger::configure($basic_dir.'/../config/logger_config.xml');

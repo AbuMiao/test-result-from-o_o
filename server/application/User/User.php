@@ -167,11 +167,12 @@ class User extends \core\data_struct\BasicData{
         $message = "";
         $sms_code = User::generateSmsVertCode();
         $mobile = Flight::request()->data->mobile;
+        $partner_id = isset($_SERVER['HTTP_N_PARTNER_ID']) ? $_SERVER['HTTP_N_PARTNER_ID'] : 0;
         if (!preg_match("/^\d{11}$/",$mobile)){
             $success = false;
             $message = "手机号必须为1开头的11位数字,请检查手机号";
         }else{
-            $sms_vert_model = new \model\SmsVertModel(array('mobile'=>$mobile));
+            $sms_vert_model = new \model\SmsVertModel(array('mobile'=>$mobile, 'partner_id'=>$partner_id));
             $sms_vert_data = array(
                 "sms_code" => $sms_code,
                 "expiry_stamp" => time() + 600);
@@ -219,14 +220,14 @@ class User extends \core\data_struct\BasicData{
     //login
     static public function cbLogin(){
     	$data = Flight::request()->data;
+        $partner_id = isset($_SERVER['HTTP_N_PARTNER_ID']) ? $_SERVER['HTTP_N_PARTNER_ID'] : 0;
     	$mobile = $data->mobile;
     	$sms_code = $data->sms_code;
         $message = "";
         $success = User::checkLoginData($mobile, $sms_code, $message);
         $data = null;
         if($success){
-            $sql = "SELECT sms_code from neiru.sms_vert where mobile = '{$mobile}' and expiry_stamp > UNIX_TIMESTAMP(now());";
-            $sent_sms_code = Flight::db()->getOne($sql);
+            $sent_sms_code = \Model\SmsVertModel::getCurrSmsCode($partner_id, $mobile);
             if (!isset($sent_sms_code)) {
                 $success = false;
                 $message = "该手机号未申请验证码或验证码已过期，请先申请手机验证码";
@@ -234,11 +235,10 @@ class User extends \core\data_struct\BasicData{
                 $success = false;
                 $message = "验证码不正确，请重新申请";
             } else {
-                $sql = "SELECT user_id FROM neiru.user WHERE mobile = '{$mobile}'";
-                $user_id = Flight::db()->getOne($sql);
+                $user_id = \Model\UserModel::getUserId($partner_id, $mobile);
                 if(!$user_id) {
                     // 不存在的用户插入数据
-                    $user_model = new \Model\UserModel(array('mobile'=>$mobile));
+                    $user_model = new \Model\UserModel(array('partner_id'=>$partner_id, 'mobile'=>$mobile));
                     $user_id = $user_model->insertIntoDB($message);
                     assert($user_id);
                 }
@@ -279,6 +279,7 @@ class User extends \core\data_struct\BasicData{
         Flight::sendRouteResult(true, array('personal_info'=>Flight::user()->personalInfo()));
     }
     protected function personalInfo(){
+        print_r($this->model);die();
         $sql = "select user_id, nick, avatar, gender, birthday from neiru.user where user_id = '{$this->user_id}'";
         $personal_info = Flight::db()->getRow($sql);
         foreach ($this->role_instance_list as $role_ins) {
@@ -296,93 +297,5 @@ class User extends \core\data_struct\BasicData{
         $this->model->setData($data);
         return $this->model->updateToDBById($message);
     }
-
-    //address list
-    static public function cbAddressList(){
-        Flight::session()->isSessionOK();
-        $user_id = Flight::user()->getUserId();
-        assert($user_id);
-        $data = Flight::request()->query;
-        $sql = "select address_id, title, detail, status, longitude, latitude from neiru.user_address where user_id = '{$user_id}' and status in ('COMMON','DEFAULT')";
-        $sql .= isset($data['city_code']) ? " and city_code = '{$data['city_code']}'" : "";
-        $address_list = Flight::db()->getAll($sql);
-        Flight::sendRouteResult(true, array('address_list'=>$address_list));
-    }
-    //address
-    static public function cbAddNewAddress(){
-        Flight::session()->isSessionOK();
-        
-        $data = Flight::request()->data->getData();
-        $user_id = Flight::user()->getUserId();
-        assert($user_id);
-        $data['user_id'] = $user_id;
-
-        $data['city_code'] = isset($data['city_code'])&&!empty($data['city_code']) ? $data['city_code'] : Flight::get("default_city_code");
-        $data['title'] = isset($data['title']) ? $data['title'] : "";
-        $data['detail'] = isset($data['detail']) ? $data['detail'] : "";
-        if(empty($data['title'])){
-            $success = false;
-            $message = '地址名(title)或地址详情(detail)缺失';
-        }else{
-            if(isset($data['longitude']) && isset($data['latitude'])){
-                $pos = Flight::new3DPosInsByGeographicCoor((object)$data);
-                $data['pos_x'] = $pos->x;
-                $data['pos_y'] = $pos->y;
-                $data['pos_z'] = $pos->z;
-            }
-
-            $data['created_time'] = $data['last_updated_time'] = date("Y-m-d H:i:s");
-
-            //insert
-            $address = new Basic($data);
-            $success = $address->saveToDB("neiru.user_address");
-            assert($success);
-        }
-        Flight::sendRouteResult($success, null, $message);
-    }
-
-    static public function cbDeleteAddress($address_id){
-        Flight::session()->isSessionOK();
-        assert(Flight::user()->getUserId());
-
-        $success = User::setAddressStatus($address_id, 'DELETED', $message);
-        Flight::sendRouteResult($success, null, $message);
-    }
-    static public function cbSetDefaultAddress($address_id){
-        Flight::session()->isSessionOK();
-        $user_id = Flight::user()->getUserId();
-        assert($user_id);
-
-        Flight::db()->start_transaction();
-        $sql = "select address_id from neiru.user_address where user_id = '{$user_id}' and status = 'DEFAULT';";
-        $curr_default_address_id = Flight::db()->getOne($sql);
-        $curr_default_address = new Basic(
-            array("address_id"=>$curr_default_address_id, 'status'=>'COMMON', 'last_updated_time'=>date("Y-m-d H:i:s")));
-
-        $message = "";
-        if( (!$curr_default_address_id || ($curr_default_address_id && User::setAddressStatus($curr_default_address_id, 'COMMON', $message)))
-            &&
-            User::setAddressStatus($address_id, 'DEFAULT', $message) ){
-            Flight::db()->commit();
-            $success = 'true';
-        }else{
-            Flight::db()->rollback();
-            $success = 'false';
-        }
-        Flight::sendRouteResult($success, null, $message);
-    }
-
-    static private function setAddressStatus($address_id, $status, &$message){
-        $address = new Basic(
-            array("address_id"=>$address_id, 'status'=>$status, 'last_updated_time'=>date("Y-m-d H:i:s")));
-        if($address->updateDB("neiru.user_address", array('status', 'last_updated_time'), 'address_id')){
-            return true;
-        }else{
-            $message .= "数据库更新记录失败";
-            return false;
-        }
-    }
-
-
 }
 ?>

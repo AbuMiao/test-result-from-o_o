@@ -13,10 +13,10 @@ abstract class Monitor{
 	}
 	abstract public function generateDataForMonitor();
 	private function generateDataForMonitorSample(){
-		//neiru.order
-		$sql = "SELECT * from neiru.order where order_id = 150";
+		//order
+		$sql = "SELECT * from order where order_id = 150";
 		$result = Monitor::GetTableMonitorInfoAndAdditionalQueryInfoFromSQL(
-			'订单表[neiru.order]', $sql, 'order_id');
+			'订单表[order]', $sql, 'order_id');
 		$purchase_info_for_generate[] = $result['monitor_info'];
 
 		return $purchase_info_for_generate;

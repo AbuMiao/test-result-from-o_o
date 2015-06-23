@@ -21,7 +21,7 @@ class TestRelationModel extends core\model\AbstractModelRelation{
     	return array("test_entity_required");
 	}
     protected function tableName(){
-    	return "neiru.test_relation";
+    	return "test_relation";
     }
 }
 

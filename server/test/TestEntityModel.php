@@ -18,7 +18,7 @@ class TestEntityModel extends core\model\AbstractModelEntity{
     	return array('test_entity_optional');
     }
     protected function tableName(){
-    	return "neiru.test_entity";
+    	return "test_entity";
     }
     protected function idName(){
     	return "test_entity_id";
