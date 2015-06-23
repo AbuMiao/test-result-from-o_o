@@ -10,8 +10,12 @@ use Logger;
 use Tools;
 
 class UserModel extends \core\model\AbstractModelEntityWithStamp{
+    static public function getUserId($partner_id, $mobile){
+        $sql = "SELECT user_id FROM user WHERE partner_id = '{$partner_id}' and mobile = '{$mobile}'";
+        return Flight::db()->getOne($sql);
+    }
     protected function requiredSegs(){
-    	return array("mobile");
+    	return array("partner_id", "mobile");
     }
     protected function optionalSegsBesidesTime(){
     	return array('nick','gender','birthday','avatar',
